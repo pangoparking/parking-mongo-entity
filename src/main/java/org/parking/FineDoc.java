@@ -7,10 +7,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.ToString;
 
 @Document(collection = "fines")
 @EqualsAndHashCode
 @Getter
+@ToString
 public class FineDoc {
 
 	long ownerID;
