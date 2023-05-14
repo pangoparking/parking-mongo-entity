@@ -15,6 +15,7 @@ import lombok.ToString;
 @ToString
 public class FineDoc {
 
+	long id;
 	long ownerID;
 	String ownerName;
 	long carID;
@@ -23,8 +24,9 @@ public class FineDoc {
 	float amountOfFine;
 	String status;
 	
-	private FineDoc(long ownerID, String ownerName, long carID, String parkingPlace, LocalDateTime dateTime,
+	private FineDoc(long id, long ownerID, String ownerName, long carID, String parkingPlace, LocalDateTime dateTime,
 			float amountOfFine, String status) {
+		this.id = id;
 		this.ownerID = ownerID;
 		this.ownerName = ownerName;
 		this.carID = carID;
@@ -35,9 +37,12 @@ public class FineDoc {
 	}
 	
 	public static FineDoc of(Fine fine) {
-		return new FineDoc(fine.ownerID, fine.ownerName, fine.carID, fine.parkingPlace,
+		return new FineDoc(fine.id, fine.ownerID, fine.ownerName, fine.carID, fine.parkingPlace,
 				fine.dateTime, fine.amountOfFine, fine.status.name());
 	}
-	
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	
 }
